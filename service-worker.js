@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/chat-with-gossip-girl/precache-manifest.b884737880903959461cc6053292d87c.js"
+  "/chat-with-gossip-girl/precache-manifest.ae9c0eaf1af052eda7c2b7c939c8abc4.js"
 );
 
 self.addEventListener('message', (event) => {
