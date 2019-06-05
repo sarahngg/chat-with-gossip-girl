@@ -7,27 +7,24 @@ This app displays Gossip Girl's text messages in an iMessage/Messenger-themed we
 
 ## Technologies Used
 
-### React JS
+**React JS**
 
-Designed and displayed nested UI components with JSX
+- Designed and displayed nested UI components with JSX
+- Handled mouse events
 
-Handled mouse events
+**Redux**
 
-### Redux
+- Maintained states in the store and dispatched actions to change state using Redux
+- Stored and specified initial messages in reducer
+- Tracked messages and message count in store for creating new message id
 
-Maintained states in the store and dispatched actions to change state using Redux
+**CSS**
 
-Stored and specified initial messages in reducer
+* Styled messages according to iMessage/Facebook Messenger
 
-Tracked messages and message count in store for creating new message id
+**Other**
 
-### CSS
-
-Styled messages according to iMessage/Facebook Messenger
-
-### Other
-
-Designed custom favicon
+* Designed custom favicon
 
 ## User Interaction
 * User can enter message in text input and add the message to a list
