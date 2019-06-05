@@ -1,68 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Chat with Gossip Girl
+What would it be like if all Gossip Girl characters use iMessage to receive the latest news on the upper east side? 
 
-## Available Scripts
+This app displays Gossip Girl's text messages in an iMessage/Messenger-themed web app, taking a modern spin on the [pilot episode](https://gossipgirl.fandom.com/wiki/Pilot) of the popular TV series. User can add new message from text input, click and view individual message details, and double click to delete messages.
 
-In the project directory, you can run:
+## Technologies Used
 
-### `npm start`
+### React JS
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Designed and displayed nested UI components with JSX
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Handled mouse events
 
-### `npm test`
+### Redux
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Maintained states in the store and dispatched actions to change state using Redux
 
-### `npm run build`
+Stored and specified initial messages in reducer
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Tracked messages and message count in store for creating new message id
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### CSS
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Styled messages according to iMessage/Facebook Messenger
 
-### `npm run eject`
+### Other
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Designed custom favicon
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## User Interaction
+* User can enter message in text input and add the message to a list
+* User can click a message to see the details (sender and message id)
+* User can double click a message to delete
+## Challenges
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* First time creating a React + Redux app
+* Challenging to make sense of immutable state and work with no additional libraries
+* Forget to add other elements when returning an updated state in reducers
+* Working with many files and folders in the [standard layout](https://medium.com/front-end-weekly/the-three-pigs-how-to-structure-react-redux-application-67f5e3c68392)
