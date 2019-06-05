@@ -1,6 +1,8 @@
 # Chat with Gossip Girl
 What would it be like if all Gossip Girl characters use iMessage to receive the latest news on the upper east side? 
 
+**View Demo 👉 [here](https://sarahngg.github.io/chat-with-gossip-girl/)**
+
 This app displays Gossip Girl's text messages in an iMessage/Messenger-themed web app, taking a modern spin on the [pilot episode](https://gossipgirl.fandom.com/wiki/Pilot) of the popular TV series. User can add new message from text input, click and view individual message details, and double click to delete messages.
 
 ## Technologies Used
