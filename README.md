@@ -10,7 +10,7 @@ This app displays Gossip Girl's text messages in an iMessage/Messenger-themed we
 **React JS**
 
 - Designed and displayed nested UI components with JSX
-- Handled mouse events
+- Handled events (onChange in input, onClick/onDoubleClick/)
 
 **Redux**
 

@@ -3,17 +3,14 @@ import MessageDetails from './MessageDetails';
 import { connect } from 'react-redux';
 
 class Message extends Component {
-    // handleMouseOver = () => {
-    //     //console.log('Show message details: ' + this.props.showDetails);
-    //     this.props.toggleDetails(this.props.id);
-    // }
-    // handleMouseOut = () => {
-    //     //console.log('Hide message details: ' + this.props.showDetails);
-    //     this.props.toggleDetails(this.props.id);
-    // }
-    handleMouseClick = () => {
+    handleHover = () => {
+        //console.log('Show message details: ' + this.props.showDetails);
         this.props.toggleDetails(this.props.id);
     }
+    
+    // handleMouseClick = () => {
+    //     this.props.toggleDetails(this.props.id);
+    // }
     handleDoubleClick = () => {
         //console.log('Deleted message id: ' + this.props.id);
         this.props.deleteMessage(this.props.id);
@@ -23,7 +20,7 @@ class Message extends Component {
         //console.log(this.props.received)
         if (this.props.received === true && this.props.media === "") {
             return (
-                <div onClick={this.handleMouseClick}>
+                <div onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
                 <MessageDetails sentBy={this.props.name} id={this.props.id} showDetails={this.props.showDetails}/>
                 <div className="message from" key={this.props.id} onDoubleClick={this.handleDoubleClick}>
                     <li> {this.props.tea} </li>
@@ -33,7 +30,7 @@ class Message extends Component {
         } 
         if (this.props.received === false && this.props.media === "") {
             return (
-                <div onClick={this.handleMouseClick}>
+                <div onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
                 <MessageDetails sentBy={this.props.name} id={this.props.id} showDetails={this.props.showDetails}/>
                 <div className="message to" key={this.props.id} onDoubleClick={this.handleDoubleClick}>
                     <li> {this.props.tea} </li>
@@ -42,7 +39,7 @@ class Message extends Component {
         )} 
         if (this.props.media !== "") {
             return (
-                <div onClick={this.handleMouseClick}>
+                <div onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
                 <MessageDetails sentBy={this.props.name} id={this.props.id} showDetails={this.props.showDetails}/>
                 <div className="media" key={this.props.id} onDoubleClick={this.handleDoubleClick}>
                     <li> <img src={this.props.media} alt='Sent in by our viewers' /> </li>
