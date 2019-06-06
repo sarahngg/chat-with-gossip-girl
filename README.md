@@ -3,14 +3,14 @@ What would it be like if all Gossip Girl characters use iMessage to receive the 
 
 **View Demo 👉 [here](https://sarahngg.github.io/chat-with-gossip-girl/)**
 
-This app displays Gossip Girl's text messages in an iMessage/Messenger-themed web app, taking a modern spin on the [pilot episode](https://gossipgirl.fandom.com/wiki/Pilot) of the popular TV series. User can add new message from text input, click and view individual message details, and double click to delete messages.
+This app displays Gossip Girl's text messages in an iMessage/Messenger-themed web app, taking a modern spin on the [pilot episode](https://gossipgirl.fandom.com/wiki/Pilot) of the popular TV series. User can add new message from text input, hover to view individual message details, and double click to delete messages.
 
 ## Technologies Used
 
 **React JS**
 
 - Designed and displayed nested UI components with JSX
-- Handled events (onChange in input, onClick/onDoubleClick/)
+- Handled events (onChange in input, onMouseEnter/onMouseLeave/onDoubleClick)
 
 **Redux**
 
@@ -28,11 +28,12 @@ This app displays Gossip Girl's text messages in an iMessage/Messenger-themed we
 
 ## User Interaction
 * User can enter message in text input and add the message to a list
-* User can click a message to see the details (sender and message id)
+* User can hover on a message to see the details (sender and message id)
 * User can double click a message to delete
 ## Challenges
 
 * First time creating a React + Redux app
-* Challenging to make sense of immutable state and work with no additional libraries
+* Work with immutable state
+* No additional libraries used
 * Forget to add other elements when returning an updated state in reducers
-* Working with many files and folders in the [standard layout](https://medium.com/front-end-weekly/the-three-pigs-how-to-structure-react-redux-application-67f5e3c68392)
+* Work with many files and folders in the [standard layout](https://medium.com/front-end-weekly/the-three-pigs-how-to-structure-react-redux-application-67f5e3c68392)
