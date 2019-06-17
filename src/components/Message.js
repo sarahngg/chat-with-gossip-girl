@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MessageDetails from './MessageDetails';
 import { connect } from 'react-redux';
+import { deleteMessage, toggleDetails } from '../actions';
 
 class Message extends Component {
     handleHover = () => {
@@ -53,11 +54,11 @@ class Message extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        deleteMessage: (id) => { dispatch({type: 'DELETE_MESSAGE', id: id})},
-        toggleDetails: (id) => { dispatch({type: 'TOGGLE_MESSAGE_DETAILS', id: id})},
-    }
-}
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         deleteMessage: (id) => { dispatch({type: 'DELETE_MESSAGE', id: id})},
+//         toggleDetails: (id) => { dispatch({type: 'TOGGLE_MESSAGE_DETAILS', id: id})},
+//     }
+// }
 
-export default connect(null, mapDispatchToProps)(Message);              
+export default connect(null, { deleteMessage, toggleDetails })(Message);              

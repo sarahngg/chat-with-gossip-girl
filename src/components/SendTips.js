@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { addMessage } from '../actions';
-// import { addTipCount } from '../actions';
+import { addMessage, addTipCount } from '../actions';
 
 //let handleSubmit
 class SendTips extends Component {
@@ -48,13 +47,13 @@ class SendTips extends Component {
 // }
 
 // pass dispatch function from store to props of this component
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addMessage: (message) => { dispatch({type: 'ADD_MESSAGE', payload: message})},
-        addTipCount: (amount) => { dispatch({type: 'ADD_TIP_COUNT', payload: amount})}
-    }
-}
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         addMessage: (message) => { dispatch({type: 'ADD_MESSAGE', payload: message})},
+//         addTipCount: (amount) => { dispatch({type: 'ADD_TIP_COUNT', payload: amount})}
+//     }
+// }
 
-export default connect(null, mapDispatchToProps)(SendTips);
+export default connect(null, { addMessage, addTipCount })(SendTips);
 
 //export default SendTips;
