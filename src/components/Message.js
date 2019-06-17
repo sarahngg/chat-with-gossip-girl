@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import MessageDetails from './MessageDetails';
 import { connect } from 'react-redux';
+import { deleteMessage, toggleDetails } from '../actions';
 
 class Message extends Component {
     handleHover = () => {
-        //console.log('Show message details: ' + this.props.showDetails);
+        console.log('Show message details: ' + this.props.showDetails);
         this.props.toggleDetails(this.props.id);
     }
     
@@ -12,7 +13,7 @@ class Message extends Component {
     //     this.props.toggleDetails(this.props.id);
     // }
     handleDoubleClick = () => {
-        //console.log('Deleted message id: ' + this.props.id);
+        console.log('Deleted message id: ' + this.props.id);
         this.props.deleteMessage(this.props.id);
     }
     render() {
@@ -53,11 +54,11 @@ class Message extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        deleteMessage: (id) => { dispatch({type: 'DELETE_MESSAGE', id: id})},
-        toggleDetails: (id) => { dispatch({type: 'TOGGLE_MESSAGE_DETAILS', id: id})},
-    }
-}
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         deleteMessage: (id) => { dispatch({type: 'DELETE_MESSAGE', id: id})},
+//         toggleDetails: (id) => { dispatch({type: 'TOGGLE_MESSAGE_DETAILS', id: id})},
+//     }
+// }
 
-export default connect(null, mapDispatchToProps)(Message);              
+export default connect(null, { deleteMessage, toggleDetails })(Message);              

@@ -36,7 +36,7 @@ const rootReducer = (state = initialState, action) => {
     if (action.type === 'DELETE_MESSAGE') {
         //console.log('invoked DELETE_MESSAGE on' + action.id);
         let updatedStoreTips = state.storeTips.filter(tips => {
-            return action.id !== tips.id
+            return action.payload !== tips.id
         });
         return {
             ...state,
@@ -48,7 +48,7 @@ const rootReducer = (state = initialState, action) => {
         let updatedStoreTips = [];
         for (let index in state.storeTips) {
             let tip = state.storeTips[index];
-            if (tip.id === action.id) {
+            if (tip.id === action.payload) {
                 //console.log(tip.showDetails);
                 tip.showDetails = !tip.showDetails;
                 //console.log(tip.showDetails);
