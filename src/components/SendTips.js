@@ -29,7 +29,7 @@ class SendTips extends Component {
         //console.log(this.props);
         return(
             <div className="centered reply">
-                <form onSubmit = {this.handleSubmit}>
+                <form id="message-form" method="POST" action="/messages" onSubmit = {this.handleSubmit}>
                     <input type ='text' id='msg' onChange={this.handleFormChange} value={this.state.message} placeholder="Double click message to delete"/>
                     <button>Send</button>
                     

@@ -1,38 +1,91 @@
 
 //import fetch from 'cross-fetch';
+export const FETCH_MESSAGES_BEGIN = 'FETCH_MESSAGES_BEGIN';
+export const FETCH_MESSAGES_SUCCESS = 'FETCH_MESSAGES_SUCCESS';
+export const FETCH_MESSAGES_FAILURE = 'FETCH_MESSAGES_FAILURE';
+export const ADD_MESSAGE = 'ADD_MESSAGE';
+export const ADD_TIP_COUNT = 'ADD_TIP_COUNT';
+export const DELETE_MESSAGE = 'DELETE_MESSAGE';
+export const TOGGLE_MESSAGE_DETAILS = 'TOGGLE_MESSAGE_DETAILS';
 
-export function requestMessages() {
-  return{
-    type: 'REQUEST_MESSAGES',
-    
-  }
+
+// export function fetchMessages() {
+//   return dispatch => {
+//     dispatch(fetchMessagesBegin());
+//     return fetch("http://localhost:9000/messages/")
+//       .then(handleErrors)
+//       .then(res => res.text())
+//       .then(res => {
+//         dispatch(fetchMessagesSuccess(res));
+//         return res;
+//       })
+//       //.then(data => {  console.log(data)})
+//       //.then(data => {  console.log(JSON.parse(data))})
+//       .catch(error => dispatch(fetchMessagesFailure(error)));
+//   };
+// }
+
+export function fetchMessages() {
+  return dispatch => {
+    dispatch(fetchMessagesBegin());
+    return fetch("http://localhost:9000/messages/")
+      .then(handleErrors)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        dispatch(fetchMessagesSuccess(data));
+        return data;
+      })
+      .catch(error => dispatch(fetchMessagesFailure(error)));
+  };
 }
 
-export function receiveMessages(json) {
-  return {
-    type: 'RECEIVE_MESSAGES',
-    messages: JSON.data.children.map(child => child.data),
-    receivedAt: Date.now()
+
+
+// Handle HTTP errors since fetch won't.
+function handleErrors(response) {
+  if (!response.ok) {
+    throw Error(response.statusText);
   }
+  return response;
 }
+
+export const fetchMessagesBegin = () => ({
+    type: FETCH_MESSAGES_BEGIN,
+});
+
+
+export const fetchMessagesSuccess = messages => ({
+    type: FETCH_MESSAGES_SUCCESS,
+    payload: messages ,
+    //jsn: JSON.parse({ messages })
+    //messages: JSON.data.children.map(child => child.data),
+    //receivedAt: Date.now()
+});
+
+export const fetchMessagesFailure  = error => ({
+  type: FETCH_MESSAGES_FAILURE,
+  payload: { error }
+});
+
 //// UI
 export const addMessage = message => { 
   return {
-    type: 'ADD_MESSAGE',
+    type: ADD_MESSAGE,
     payload: message
   };
 };
 
 export const addTipCount = amount => {
     return {
-        type: 'ADD_TIP_COUNT',
+        type: ADD_TIP_COUNT,
         payload: amount
     }
 }
 
 export const deleteMessage = id => {
   return {
-    type: 'DELETE_MESSAGE',
+    type: DELETE_MESSAGE,
     payload: id 
   };
 };
