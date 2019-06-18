@@ -33,14 +33,14 @@ class TipLine extends Component {
         //Cycle through the array "tips" and map each individual "tip"
         //to each div using the html template in return
         
-        console.log(this.props);
+        //console.log(this.props);
         //console.log(typeof(tips));
         // if (typeof(tips) !== "undefined") {
         //     console.log(tips);
         //     var parsedTips = JSON.parse(tips);
         //     console.log(parsedTips);
         // }
-        console.log({tips});
+        //console.log({tips});
         // return (
         //     <div className="messages-wrapper">
         //         <ul>

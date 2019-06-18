@@ -15,7 +15,7 @@ export function fetchMessages() {
       .then(handleErrors)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        //console.log(data);
         dispatch(fetchMessagesSuccess(data));
         return data;
       })
