@@ -87,12 +87,32 @@ export const addTipCount = amount => {
     }
 }
 
-export const deleteMessage = id => {
+export const deleteMessage = id => { 
+  
+  return dispatch => {
+    dispatch(deleteMessageFromState(id));
+    return fetch("http://localhost:9000/messages/", {
+      method: 'delete',
+    })
+    //.then(json)
+    .then(function (data) {
+      console.log('Deleted with JSON response', data);
+    })
+    .catch(function (error) {
+      console.log('Request failed', error);
+    });
+ }
+
+};
+
+
+export const deleteMessageFromState = id => {
   return {
     type: DELETE_MESSAGE,
     payload: id 
   };
 };
+
 
 export const toggleDetails = id => {
   return {

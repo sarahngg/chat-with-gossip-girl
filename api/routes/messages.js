@@ -29,4 +29,13 @@ router.post('/', function(req, res,next) {
   res.json(new_messages);
 });
 
+
+router.delete('/', function(req, res,next) {
+  //request
+  console.log(req.body);
+  console.log(messages);
+  messages.pop()
+  res.json(messages);
+});
+
 module.exports = router;
