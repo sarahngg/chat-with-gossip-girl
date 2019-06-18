@@ -6,7 +6,7 @@ import {
 } from '../actions';
 
 const initialState = {
-    storeCount: 0,
+    storeCount: 5,
     storeTips: [
             // { key:1, id: '1', showDetails: false, received: true, name:"GossipGirl", tea:"Hey Upper East Siders. Gossip Girl here 🤫 And I have the biggest news ever.", media:""},
             // { key:2, id: '2', showDetails: false, received: false, name:"", tea:"Do you have the tea? 🍵🍵", media:""},
@@ -17,6 +17,7 @@ const initialState = {
     ],
     isFetching: false,
     error: null,
+    newMessage: ""
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -47,24 +48,27 @@ const rootReducer = (state = initialState, action) => {
                 error: action.payload.error,
             };
 
-        case 'ADD_TIP_COUNT': {
-            //console.log('invoked ADD_TIP_COUNT');
-            //console.log('Reducer before storeCount: '  + state.storeCount);
-            const newTipCount = state.storeCount + action.payload;
-            //console.log('Reducer after storeCount: ' + state.storeCount);
-            //console.log('Reducer after newTipCount: ' + newTipCount);
-            return {
-                ...state,
-                storeCount: newTipCount,
-            }
-        }
+        // case 'ADD_TIP_COUNT': {
+        //     //console.log('invoked ADD_TIP_COUNT');
+        //     //console.log('Reducer before storeCount: '  + state.storeCount);
+        //     const newTipCount = state.storeCount + action.payload;
+        //     //console.log('Reducer after storeCount: ' + state.storeCount);
+        //     //console.log('Reducer after newTipCount: ' + newTipCount);
+        //     return {
+        //         ...state,
+        //         storeCount: newTipCount,
+        //     }
+        // }
 
         case 'ADD_MESSAGE': {
             //console.log('invoked ADD_MESSAGE on' + action.payload);
+            const newTipCount = state.storeCount + 1;
             const storeCountString = state.storeCount.toString()
             return {
                 ...state,
-                storeTips: [...state.storeTips, {key:state.storeCount, id:storeCountString, showDetails: false, received: false, name:"", tea:action.payload, media:""}]
+                storeTips: [...state.storeTips, {key:newTipCount, id:newTipCount.toString(), showDetails: false, received: false, name:"", tea:action.payload, media:""}],
+                newMessage: {key:state.storeCount, id:storeCountString, showDetails: false, received: false, name:"", tea:action.payload, media:""},
+                storeCount: newTipCount,
             }
         }
 

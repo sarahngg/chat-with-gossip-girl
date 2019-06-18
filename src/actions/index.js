@@ -8,23 +8,6 @@ export const ADD_TIP_COUNT = 'ADD_TIP_COUNT';
 export const DELETE_MESSAGE = 'DELETE_MESSAGE';
 export const TOGGLE_MESSAGE_DETAILS = 'TOGGLE_MESSAGE_DETAILS';
 
-
-// export function fetchMessages() {
-//   return dispatch => {
-//     dispatch(fetchMessagesBegin());
-//     return fetch("http://localhost:9000/messages/")
-//       .then(handleErrors)
-//       .then(res => res.text())
-//       .then(res => {
-//         dispatch(fetchMessagesSuccess(res));
-//         return res;
-//       })
-//       //.then(data => {  console.log(data)})
-//       //.then(data => {  console.log(JSON.parse(data))})
-//       .catch(error => dispatch(fetchMessagesFailure(error)));
-//   };
-// }
-
 export function fetchMessages() {
   return dispatch => {
     dispatch(fetchMessagesBegin());
@@ -39,8 +22,6 @@ export function fetchMessages() {
       .catch(error => dispatch(fetchMessagesFailure(error)));
   };
 }
-
-
 
 // Handle HTTP errors since fetch won't.
 function handleErrors(response) {
@@ -69,12 +50,35 @@ export const fetchMessagesFailure  = error => ({
 });
 
 //// UI
-export const addMessage = message => { 
+export const addMessage = messageObj => { 
+  console.log(messageObj);
+   //addMessageToState(messageObj.tea);
+  return dispatch => {
+    dispatch(addMessageToState(messageObj.tea));
+    return fetch("http://localhost:9000/messages/", {
+      method: 'post',
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(messageObj)
+    })
+    //.then(json)
+    .then(function (data) {
+      console.log('Request succeeded with JSON response', data);
+    })
+    .catch(function (error) {
+      console.log('Request failed', error);
+    });
+ }
+};
+
+export const addMessageToState = message => {
   return {
     type: ADD_MESSAGE,
     payload: message
   };
 };
+
 
 export const addTipCount = amount => {
     return {
