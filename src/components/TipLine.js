@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Message from './Message';
 import { fetchMessages } from '../actions';
+import axios from 'axios';
 
 class TipLine extends Component {
       
@@ -16,6 +17,7 @@ class TipLine extends Component {
         component mounts.
     */
     componentDidMount() {
+        
         this.props.dispatch(fetchMessages());
     }
     render() {
@@ -52,7 +54,11 @@ class TipLine extends Component {
 
 
         const tipList = tips.map (tip => {
-            return(<Message key={tip.key} id={tip.id} showDetails={tip.showDetails} received={tip.received} name={tip.name} tea={tip.tea} media={tip.media}/>)
+            if (tip !== {}) {
+                return(<Message key={tip.key} id={tip.id} showDetails={tip.showDetails} received={tip.received} name={tip.name} tea={tip.tea} media={tip.media}/>)
+            } else {
+                return(<div></div>)
+            }
         })
         return(
             <div className="messages-wrapper">

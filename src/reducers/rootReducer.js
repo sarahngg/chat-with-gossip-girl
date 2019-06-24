@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+//import { combineReducers } from 'redux';
 import { 
     FETCH_MESSAGES_BEGIN,
     FETCH_MESSAGES_SUCCESS,
@@ -30,9 +30,7 @@ const rootReducer = (state = initialState, action) => {
                 error: null
             };
         case FETCH_MESSAGES_SUCCESS: 
-            console.log('FETCH_MESSAGES_SUCCESS');
-            console.log(action.payload);
-            //console.log('FETCH_MESSAGES_SUCCESS: action.payload.jsn: ' + action.payload.jsn);
+            console.log('FETCH_MESSAGES_SUCCESS: action.payload ', action.payload);
             return {
                 ...state,
                 //storeCount: action.payload.messages.length(),
@@ -40,7 +38,7 @@ const rootReducer = (state = initialState, action) => {
                 storeTips: action.payload
             };
         case FETCH_MESSAGES_FAILURE: 
-            console.log('FETCH_MESSAGES_FAILURE: '+ action.payload);
+            console.log('FETCH_MESSAGES_FAILURE: ', action.payload);
             return {
                 ...state,
                 isFetching: false,

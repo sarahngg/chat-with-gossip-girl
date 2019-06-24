@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res,next) {
   //request
-  new_messages = req.body;
+  let new_messages = req.body;
   messages.push(new_messages);
 
   //respond 
@@ -30,12 +30,19 @@ router.post('/', function(req, res,next) {
 });
 
 
-router.delete('/', function(req, res,next) {
+router.delete('/:id', function(req, res,next) {
   //request
-  console.log(req.body);
+  console.log(req);
+  // console.log(messages);
+  // messages.pop()
+  // res.json(messages);
+  let id = req.params.id;
+  console.log(id);
+  function check(messages) {
+    return messages.id !== id;
+  }
+  messages = messages.filter(check);
   console.log(messages);
-  messages.pop()
-  res.json(messages);
 });
 
 module.exports = router;

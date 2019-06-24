@@ -5,7 +5,7 @@ import { deleteMessage, toggleDetails } from '../actions';
 
 class Message extends Component {
     handleHover = () => {
-        //console.log('Show message details: ' + this.props.showDetails);
+        // console.log('Show message details: ' + this.props.showDetails);
         this.props.toggleDetails(this.props.id);
     }
     
@@ -13,7 +13,7 @@ class Message extends Component {
     //     this.props.toggleDetails(this.props.id);
     // }
     handleDoubleClick = () => {
-        //console.log('Deleted message id: ' + this.props.id);
+        console.log('Deleted message id: ' + this.props.id);
         this.props.deleteMessage(this.props.id);
     }
     render() {
