@@ -5,6 +5,8 @@ import SendTips from './components/SendTips';
 // import { connect } from 'react-redux';
 
 class App extends Component {
+      
+
     render() {
         //console.log(this.props);
         const { tips } = this.props;
@@ -17,7 +19,9 @@ class App extends Component {
                    
                 </div>
                 <TipLine tips={tips}/>
+                
                 <SendTips />
+                
             </div>
         )
     }
