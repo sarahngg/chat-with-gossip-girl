@@ -7,6 +7,14 @@ This app displays Gossip Girl's text messages in an iMessage/Messenger-themed we
 
 ## Technologies Used
 
+**Express/Node**
+
+* Stores Initialized messages
+* Routes HTTP requests
+  * GET: fetch initial messages from server
+  * POST: append new message to the list of messages
+  * DELETE: get message id from `req.params` and return a filtered message list
+
 **React JS**
 
 - Designed and displayed nested UI components with JSX
