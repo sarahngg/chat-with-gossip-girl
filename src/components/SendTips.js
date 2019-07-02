@@ -14,7 +14,7 @@ class SendTips extends Component {
         });
     }
     handleSubmit =(e)=> {
-        const p = this.props;
+        //const p = this.props;
         // console.log(p);
         e.preventDefault(); //prevent default refreshing
         console.log("Form submitted!", this.state.message);

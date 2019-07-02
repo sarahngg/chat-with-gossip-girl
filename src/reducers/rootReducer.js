@@ -11,14 +11,6 @@ const initialState = {
     isFetching: false,
     error: null,
     newMessage: "",
-
-    data: [],
-    id: 0,
-    message: null,
-    intervalIsSet: false,
-    idToDelete: null,
-    idToUpdate: null,
-    objectToUpdate: null,
 };
 
 const rootReducer = (state = initialState, action) => {

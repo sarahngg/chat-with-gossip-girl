@@ -22,7 +22,7 @@ class Message extends Component {
         if (this.props.received === true && this.props.media === "") {
             return (
                 <div onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
-                <MessageDetails sentBy={this.props.name} id={this.props.id} showDetails={this.props.showDetails}/>
+                <MessageDetails date={this.props.date} _id={this.props._id} sentBy={this.props.name} id={this.props.id} showDetails={this.props.showDetails}/>
                 <div className="message from" key={this.props.id} onDoubleClick={this.handleDoubleClick}>
                     <li> {this.props.tea} </li>
                 </div>   
@@ -32,7 +32,7 @@ class Message extends Component {
         if (this.props.received === false && this.props.media === "") {
             return (
                 <div onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
-                <MessageDetails sentBy={this.props.name} id={this.props.id} showDetails={this.props.showDetails}/>
+                <MessageDetails date={this.props.date} _id={this.props._id} sentBy={this.props.name} id={this.props.id} showDetails={this.props.showDetails}/>
                 <div className="message to" key={this.props.id} onDoubleClick={this.handleDoubleClick}>
                     <li> {this.props.tea} </li>
                 </div>
@@ -41,7 +41,7 @@ class Message extends Component {
         if (this.props.media !== "") {
             return (
                 <div onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
-                <MessageDetails sentBy={this.props.name} id={this.props.id} showDetails={this.props.showDetails}/>
+                <MessageDetails date={this.props.date} _id={this.props._id} sentBy={this.props.name} id={this.props.id} showDetails={this.props.showDetails}/>
                 <div className="media" key={this.props.id} onDoubleClick={this.handleDoubleClick}>
                     <li> <img src={this.props.media} alt='Sent in by our viewers' /> </li>
                 </div>

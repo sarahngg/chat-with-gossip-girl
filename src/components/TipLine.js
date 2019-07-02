@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import Message from './Message';
-import { fetchMessages, getDataFromDb } from '../actions';
+import { fetchMessages } from '../actions';
 
 class TipLine extends Component {
       
@@ -19,18 +18,7 @@ class TipLine extends Component {
     componentDidMount() {
         
         this.props.dispatch(fetchMessages());
-
-        ///////////////////////////
-        // this.props.getDataFromDb();
-        // if (!this.state.intervalIsSet) {
-        // let interval = setInterval(this.props.getDataFromDb, 1000);
-        // //--------------//
-        // this.setState({ intervalIsSet: interval });
-        // //--------------//
-        // }
     }
-
-      ///////////////////////////
     render() {
         
         //Destructuring: storing props in variable
@@ -46,7 +34,7 @@ class TipLine extends Component {
 
         const tipList = tips.map (tip => {
             if (tip !== {}) {
-                return(<Message key={tip.key} id={tip.id} showDetails={tip.showDetails} received={tip.received} name={tip.name} tea={tip.tea} media={tip.media}/>)
+                return(<Message _id={tip._id} key={tip.key} id={tip.id} showDetails={tip.showDetails} received={tip.received} name={tip.name} tea={tip.tea} media={tip.media}/>)
             } else {
                 return(<div></div>)
             }

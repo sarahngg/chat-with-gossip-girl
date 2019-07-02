@@ -85,6 +85,8 @@ messageDbRoutes.route('/update/:id').post(function(req, res) {
   });
 });
 
+
+
 messageDbRoutes.route('/add').post(function(req, res) {
   res.setHeader('Content-Type', 'appliction/json');
   let message = new Message(req.body);
