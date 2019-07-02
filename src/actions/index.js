@@ -11,7 +11,7 @@ export const TOGGLE_MESSAGE_DETAILS = 'TOGGLE_MESSAGE_DETAILS';
 export function fetchMessages() {
   return dispatch => {
     dispatch(fetchMessagesBegin());
-    return axios.get("http://localhost:9000/messages/")
+    return axios.get("http://localhost:4000/messagedb/")
       //.then(handleErrors)
       //.then(res => res.json())
       .then(res => {
@@ -72,12 +72,13 @@ export const fetchMessagesFailure  = error => ({
 //  }
 // };
 
+
 export const addMessage = messageObj => { 
   console.log(messageObj);
    //addMessageToState(messageObj.tea);
   return dispatch => {
     dispatch(addMessageToState(messageObj.tea));
-    return axios.post('http://localhost:9000/messages/', messageObj)
+    return axios.post('http://localhost:4000/messagedb/add', messageObj)
     .then(res => {
       //console.log(res);
       console.log('Posted', res.data);
@@ -153,3 +154,4 @@ export const toggleDetails = id => {
     payload: id 
   };
 };
+

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Message from './Message';
-import { fetchMessages } from '../actions';
-import axios from 'axios';
+import { fetchMessages, getDataFromDb } from '../actions';
 
 class TipLine extends Component {
       
@@ -19,7 +19,18 @@ class TipLine extends Component {
     componentDidMount() {
         
         this.props.dispatch(fetchMessages());
+
+        ///////////////////////////
+        // this.props.getDataFromDb();
+        // if (!this.state.intervalIsSet) {
+        // let interval = setInterval(this.props.getDataFromDb, 1000);
+        // //--------------//
+        // this.setState({ intervalIsSet: interval });
+        // //--------------//
+        // }
     }
+
+      ///////////////////////////
     render() {
         
         //Destructuring: storing props in variable
@@ -32,26 +43,6 @@ class TipLine extends Component {
         if (isFetching) {
             return <div>Loading...</div>;
         }
-        //Cycle through the array "tips" and map each individual "tip"
-        //to each div using the html template in return
-        
-        //console.log(this.props);
-        //console.log(typeof(tips));
-        // if (typeof(tips) !== "undefined") {
-        //     console.log(tips);
-        //     var parsedTips = JSON.parse(tips);
-        //     console.log(parsedTips);
-        // }
-        //console.log({tips});
-        // return (
-        //     <div className="messages-wrapper">
-        //         <ul>
-        //         { tips }
-        //         </ul>
-        //         <p className="Test">API {this.state.tips}</p>
-        //     </div>
-        // )
-
 
         const tipList = tips.map (tip => {
             if (tip !== {}) {
@@ -74,7 +65,22 @@ class TipLine extends Component {
 const mapStateToProps = state => ({
     tips: state.storeTips,
     isFetching: state.isFetching,
-    error: state.error
+    error: state.error,
+    intervalIsSet: state.intervalIsSet,
 });
+
+// function mapDispatchToProps(dispatch) {
+
+//     return { 
+//         dispatch,
+//         getDataFromDb: () => {
+//             console.log('getDataFromDb');
+//             return fetch('http://localhost:3001/api/getData')
+//                 .then((data) => data.json())
+//                 .then((res) => //this.setState({ data: res.data }));
+//                 console.log('getDataFromDb', res.data))
+//             }
+//      };
+//   }
 
 export default connect(mapStateToProps)(TipLine);
