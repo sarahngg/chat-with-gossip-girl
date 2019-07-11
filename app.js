@@ -9,7 +9,7 @@ var usersRouter = require('./routes/users');
 var messagesRouter = require('./routes/messages'); // REQUIRE THE MESSAGE MODULE
 var testAPIRouter = require("./routes/testAPI"); // REQUIRE NEW ROUTE
 var app = express();
-var dt = require("dotenv").config();
+//var dt = require("dotenv").config();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,7 +25,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const PORT = 9000;
 app.use(bodyParser.json());
-app.use (dt);
+//app.use (dt);
 
 let Message = require('./models/message');
 // MongoDB database
