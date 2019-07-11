@@ -127,7 +127,7 @@ export const deleteMessage = id => {
   
   return dispatch => {
     dispatch(deleteMessageFromState(id));
-    return axios.delete('http://localhost:9000/messages/' + id)
+    return axios.delete('/messages/' + id)
     //.then(json)
     .then(function (data) {
       console.log('Deleted with JSON response', data);

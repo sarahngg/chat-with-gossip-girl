@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const PORT = 9000;
+const PORT = 3000;
 app.use(bodyParser.json());
 //app.use (dt);
 
