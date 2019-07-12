@@ -12,10 +12,14 @@ var app = express();
 //var dt = require("dotenv").config();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+//app.set('views', path.join(__dirname, 'views'));
+//app.set('view engine', 'jade');
+
+app.use(express.static(path.join(__dirname, "client", "build")));
+
+
 app.use(cors());
-app.use(logger('dev'));
+//app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -23,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const PORT = 3000;
+const PORT = 4000;
 app.use(bodyParser.json());
 //app.use (dt);
 
@@ -100,6 +104,10 @@ messageDbRoutes.route('/add').post(function(req, res) {
       });
 });
 
+app.listen(PORT, function() {
+  console.log("Server is running on Port: " + PORT);
+});
+
 app.use('/messagedb', messageDbRoutes);
 
 app.use('/', indexRouter);
@@ -108,11 +116,6 @@ app.use('/messages', messagesRouter);
 app.use('/testAPI', testAPIRouter); // NEW ROUTE
 
 
-
-
-app.listen(PORT, function() {
-  console.log("Server is running on Port: " + PORT);
-});
 
 
 
@@ -132,11 +135,11 @@ app.use(function(req, res, next) {
 });
 
 
-app.use(express.static(path.join(__dirname, "client", "build")))
 
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
+
 
 
 module.exports = app;
