@@ -1,21 +1,29 @@
 # Chat with Gossip Girl
 What would it be like if all Gossip Girl characters use iMessage to receive the latest news on the upper east side? 
 
-**View Demo 👉 [here](https://sarahngg.github.io/chat-with-gossip-girl/)**
+**View Front-end Demo 👉 [here](https://sarahngg.github.io/chat-with-gossip-girl/)**
+
+**Deployed App** 👉 [here](https://chat-with-gossip-girl.herokuapp.com/) (buggy)
 
 This app displays Gossip Girl's text messages in an iMessage/Messenger-themed web app, taking a modern spin on the [pilot episode](https://gossipgirl.fandom.com/wiki/Pilot) of the popular TV series. User can add new message from text input, hover to view individual message details, and double click to delete messages.
 
 ## Technologies Used
 
+**MongoDB**
+
+* Stored initial messages
+* Specified schema
+* Used Mongoose to connect to database
+
 **Express/Node**
 
-* Stores Initialized messages
-* Routes HTTP requests
-  * GET: fetch initial messages from server
-  * POST: append new message to the list of messages
-  * DELETE: get message id from `req.params` and return a filtered message list
+* ~Stores Initialized messages~ [Replaced with MongoDB]
+* ~Routes HTTP requests~ [Replaced with Axios]
+  * ~GET: fetch initial messages from server~
+  * ~POST: append new message to the list of messages~
+  * ~DELETE: get message id from `req.params` and return a filtered message list~
 
-**React JS**
+**React**
 
 - Designed and displayed nested UI components with JSX
 - Handled events (onChange in input, onMouseEnter/onMouseLeave/onDoubleClick)
@@ -23,7 +31,7 @@ This app displays Gossip Girl's text messages in an iMessage/Messenger-themed we
 **Redux**
 
 - Maintained states in the store and dispatched actions to change state using Redux
-- Stored and specified initial messages in reducer
+- ~Stored and specified initial messages in reducer~ [Using MongoDB]
 - Tracked messages and message count in store for creating new message id
 
 **CSS**
